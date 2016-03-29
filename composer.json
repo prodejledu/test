@@ -1,0 +1,57 @@
+{
+  "name": "prodejledu/test",
+  "license": "MIT",
+  "type": "project",
+  "description": "Test.",
+  "autoload": {
+    "psr-4": { "": "src/" },
+    "files": [ "app/AppKernel.php" ]
+  },
+  "autoload-dev": {
+    "psr-4": { "Tests\\": "tests/" }
+  },
+  "require": {
+    "php": "~7.0",
+    "symfony/symfony": "~2.8 | ~3"
+  },
+  "require-dev": {
+    "symfony/var-dumper": "~3.0",
+    "sensio/generator-bundle": "~3.0"
+  },
+  "scripts": {
+    "post-install-cmd": [
+      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
+      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::removeSymfonyStandardFiles",
+      "chmod -R 777 var/cache"
+    ],
+    "post-update-cmd": [
+      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
+      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::removeSymfonyStandardFiles",
+      "chmod -R 777 var/cache"
+    ]
+  },
+  "config": {
+    "bin-dir": "bin",
+    "prestissimo": {
+      "maxConnections": 6,
+      "minConnections": 3
+    }
+  },
+  "extra": {
+    "symfony-app-dir": "app",
+    "symfony-web-dir": "web",
+    "symfony-bin-dir": "bin",
+    "symfony-var-dir": "var",
+    "symfony-tests-dir": "tests",
+    "symfony-assets-install": "relative",
+    "branch-alias": {
+      "dev-master": "1.0-dev"
+    }
+  }
+}
